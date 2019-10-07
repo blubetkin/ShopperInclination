@@ -1,0 +1,14 @@
+---
+title: "Shopper Inclination"
+author: "Benjamin Lubetkin"
+output: html_notebook
+---
+
+This data set is showing the inclination of online shoppers to buy certain products online when they are new or returning to a new website. It follows over 12,000 people as they buy and not buy. I chose this data set because I, as many others (at least 12,000), do enjoy partaking in online shopping, especially since credit cards are a thing and credit reports are just numbers. First, let us import the data and we can get started!
+
+```{r}
+install.packages("tidyverse", repos = "http://cran.us.r-project.org")
+library("tidyverse")
+
+Shoppers <- read_csv("https://raw.githubusercontent.com/blubetkin/ShopperInclination/master/online_shoppers_intention.csv")
+```
