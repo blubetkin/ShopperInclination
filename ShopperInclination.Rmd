@@ -33,6 +33,8 @@ colnames(Shoppers)[colnames(Shoppers) == "BounceRates"] <- "Percentage that Left
 colnames(Shoppers)[colnames(Shoppers) == "ExitRates"] <- "Percentage of Page Views in Last Session (Out of all Views)"
 colnames(Shoppers)[colnames(Shoppers) == "Administrative"] <- "Administrative_Website"
 colnames(Shoppers)[colnames(Shoppers) == "Revenue"] <- "Purchase"
+colnames(Shoppers)[colnames(Shoppers) == "Region"] <- "Shopper's Region"
+colnames(Shoppers)[colnames(Shoppers) == "SpecialDay"] <- "Holiday"
 ```
 Now, this data set seems very big. It would be a good idea to separate some columns into some other tables. First, let's create a table that takes all of the data about the websites that were visited before a purchase was made and put them into their own table. This will allow us to have a quick reference for any information on the websites. 
 
@@ -43,5 +45,43 @@ Websites <- tibble(Administrative_Website = Shoppers$Administrative_Website, Adm
 Next, we can create a table dedicated to how long shoppers spent on the site that they made their purchase on. We are ceating this seperate table because it will allow us to easily access information that is directly related to how the person shopped. This table is what we will look at if a purchase was made on impulse or not.
 
 ```{r}
-Shopping <- tibble("Percentage that Left Website Immediately" = Shoppers$"Percentage that Left Website Immediately", "Percentage of Page Views in Last Session (Out of all Views)" = Shoppers$"Percentage of Page Views in Last Session (Out of all Views)", "PageValues" = Shoppers$"PageValues", "SpecialDay" = Shoppers$"SpecialDay", "Month" = Shoppers$"Month")
+Shopping <- tibble("Percentage that Left Website Immediately" = Shoppers$"Percentage that Left Website Immediately", "Percentage of Page Views in Last Session (Out of all Views)" = Shoppers$"Percentage of Page Views in Last Session (Out of all Views)", "PageValues" = Shoppers$"PageValues", "Holiday" = Shoppers$"Holiday", "Month" = Shoppers$"Month", Purchase = Shoppers$Purchase)
 ```
+
+Finally, we will make a final table that collects all the data on the shoppers, their computers, what browsers they are using, region they're in, etc. This will make it easy for us to identify things we want to know about the shoppers themselves.
+
+```{r}
+TheShoppers <- tibble(OperatingSystems = Shoppers$OperatingSystems, Browser = Shoppers$Browser, "Shopper's Region" = Shoppers$"Shopper's Region", TrafficType = Shoppers$TrafficType, VisitorType = Shoppers$VisitorType, Weekend = Shoppers$Weekend, Purchase = Shoppers$Purchase)
+```
+
+The next thing I will do is take some of the data and visualize it. The first thing we will visualize is how many buyers there were online. To represent this we will use a simple bar chart:
+
+```{r}
+ggplot(TheShoppers, aes(x = Purchase)) + geom_bar()
+```
+
+Wowzers! Look at how many shoppers are responsible! They didn't buy anything! This will surely be seen in the data later on. Now, let's make a bar graph about how many returning shoppers there were versus how many were new:
+
+```{r}
+ggplot(TheShoppers, aes(x = VisitorType)) + geom_bar()
+```
+From this we can see that most of the shoppers, and possible buyers, are actually returning, thus we can think that they might have possibly been planning on this purchase and not just buying impulsively. Now, we can make another bar graph related to how many purchases are made close to holidays:
+```{r}
+ggplot(Shopping, aes(x = Holiday)) + geom_bar()
+```
+From this we can see that the shoppers made their purchases more around regular days than holidays. Very interesting in how little it was, actually. I am thouroughly flabbergasted!
+
+The final graph I want to include is a bar graph about how much time was spent on the Product's Informational website. This can be graphed as:
+```{r}
+ggplot(Websites, aes(x = ProductRelated_Duration)) + geom_bar()
+```
+
+Now that we have done the intro to my data set and done some cleaning, I believe it is time to look at what I would like to find based on this data set. My questions I would like to answer are:
+
+-To determine impulse purchases, how many new visitors made a purchase? This information could be used to model advertising and whether it is directed more towards new or returning customers.
+
+
+-Is there a correlation between the page values and a purchase? As in, did research go into this purchase? This is different from checking to see impulse buying, because it looks at whether research into different amounts of websites caused that person to decide against making a purchase or going through with one.
+
+-What was the average time spent on all the websites before a purchase was made or not made? This will allow us to determine a frame of mind that a shopper could be "in the shopping mode" before they exit and realize they don't want to make the purchase.
+
