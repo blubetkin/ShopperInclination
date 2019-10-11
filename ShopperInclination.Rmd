@@ -3,6 +3,7 @@ title: "Shopper Inclination"
 author: "Benjamin Lubetkin"
 output: html_notebook
 ---
+The title of this data set is "Online Shoppers Purchasing Intention Data Set it is from the UCI machine learing repository. Here is the cited source: Sakar, C.O., Polat, S.O., Katircioglu, M. et al. Neural Comput & Applic (2018).
 
 This data set is showing the inclination of online shoppers to buy certain products online when they are new or returning to a new website. It follows over 12,000 people as they buy and not buy. I chose this data set because I, as many others (at least 12,000), do enjoy partaking in online shopping, especially since credit cards are a thing and credit reports are just numbers. First, let us import the data and we can get started!
 
@@ -11,4 +12,36 @@ install.packages("tidyverse", repos = "http://cran.us.r-project.org")
 library("tidyverse")
 
 Shoppers <- read_csv("https://raw.githubusercontent.com/blubetkin/ShopperInclination/master/online_shoppers_intention.csv")
+```
+I do believe that this data is good, as it covers a wide array of people. For example, since each observation follows one person I feel like each variable can be easily followed as well as interacted with for each person. Another thing I like is how it takes data based off of a whole browsing session rather than just a single website. This can give us a small window into maybe what the person was thinking when they made a purchase, were they shopping around or getting to swiping that sweet plastic? It also has the added benefit of being attached to and used for an academic research paper. Thus, I find that it is most definitely on the trustworthy side.
+
+Now, each column is very strange (at least that is how they appear to be), so let's break down what these variables (columns) mean!
+-First, we can actually group the first six columns together! How exciting!And time saving! Each one stands for a certain type of website that was visited during the browsing session and how long they were on the website for. Whether they were Administrative, Informational, or Product Related. 
+
+-Second, we come to the bounce rate, which is the percentage of people who entered into the site with the product and then left without doing anything related to purchasing.
+-Third, there is the exit rate, which is the percentage of page views in the last session out of all pageviews
+-Fourth, we find the Page Value, which is the average value of the page visited before a purchase is made
+-Fifth, there is the Special Day, which is a numerical value that determines how close to a special day the purchase is made (Special Day being a holiday) It is calculated by looking at the order and delivery dates of items around the day.
+-Fifth, the last variables all deal with the month the purchase was made in, the numerical values of the browser that was being used, the operating system, region, and traffic type. 
+
+For readability, let's rename the some of the columns,
+```{r}
+colnames(Shoppers)[colnames(Shoppers) == "Administrative"] <- "Administrative_Website"
+colnames(Shoppers)[colnames(Shoppers) == "Informational"] <- "Informational_Website"
+colnames(Shoppers)[colnames(Shoppers) == "ProductRelated"] <- "ProductRelated_Website"
+colnames(Shoppers)[colnames(Shoppers) == "BounceRates"] <- "Percentage that Left Website Immediately"
+colnames(Shoppers)[colnames(Shoppers) == "ExitRates"] <- "Percentage of Page Views in Last Session (Out of all Views)"
+colnames(Shoppers)[colnames(Shoppers) == "Administrative"] <- "Administrative_Website"
+colnames(Shoppers)[colnames(Shoppers) == "Revenue"] <- "Purchase"
+```
+Now, this data set seems very big. It would be a good idea to separate some columns into some other tables. First, let's create a table that takes all of the data about the websites that were visited before a purchase was made and put them into their own table. This will allow us to have a quick reference for any information on the websites. 
+
+```{r}
+Websites <- tibble(Administrative_Website = Shoppers$Administrative_Website, Administrative_Duration = Shoppers$Administrative_Duration, Informational_Website = Shoppers$Informational_Website, Informational_Duration = Shoppers$Informational_Duration, ProductRelated = Shoppers$ProductRelated_Website, ProductRelated_Duration = Shoppers$ProductRelated_Duration, Purchase = Shoppers$Purchase)
+```
+
+Next, we can create a table dedicated to how long shoppers spent on the site that they made their purchase on. We are ceating this seperate table because it will allow us to easily access information that is directly related to how the person shopped. This table is what we will look at if a purchase was made on impulse or not.
+
+```{r}
+Shopping <- tibble("Percentage that Left Website Immediately" = Shoppers$"Percentage that Left Website Immediately", "Percentage of Page Views in Last Session (Out of all Views)" = Shoppers$"Percentage of Page Views in Last Session (Out of all Views)", "PageValues" = Shoppers$"PageValues", "SpecialDay" = Shoppers$"SpecialDay", "Month" = Shoppers$"Month")
 ```
