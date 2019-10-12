@@ -12,17 +12,28 @@ install.packages("tidyverse", repos = "http://cran.us.r-project.org")
 library("tidyverse")
 
 Shoppers <- read_csv("https://raw.githubusercontent.com/blubetkin/ShopperInclination/master/online_shoppers_intention.csv")
+
+library("dplyr")
+library("tidyr")
+library("ggplot2")
 ```
-I do believe that this data is good, as it covers a wide array of people. For example, since each observation follows one person I feel like each variable can be easily followed as well as interacted with for each person. Another thing I like is how it takes data based off of a whole browsing session rather than just a single website. This can give us a small window into maybe what the person was thinking when they made a purchase, were they shopping around or getting to swiping that sweet plastic? It also has the added benefit of being attached to and used for an academic research paper. Thus, I find that it is most definitely on the trustworthy side.
+I do believe that this data is good, as it covers a wide array of people. For example, since each observation follows one person I feel like each variable can be easily followed as well as interacted with for each person. Another thing I like is how it takes data based off of a whole browsing session rather than just a single website. This can give us a small window into maybe what the person was thinking when they made a purchase, were they shopping around or getting to swiping that sweet plastic? It also has the added benefit of being attached to and used for an academic research paper entitled, "Real-time prediction of online shoppers’ purchasing intention using multilayer perceptron and LSTM recurrent neural networks" by C. Okan Sakar, S. Olcay Polat, Mete Katircioglu, and Yomi Kastro. Thus, I find that it is most definitely on the trustworthy side. It is hard for me to find limitations with it. It does rely on numbers in certain areas where actual words would make more sense (like in the browser variable) and it is a little general, so anyone wanting to find information on certain products being sold or websites being used should look elsewhere. That being said, it is a very good data set!
 
 Now, each column is very strange (at least that is how they appear to be), so let's break down what these variables (columns) mean!
--First, we can actually group the first six columns together! How exciting!And time saving! Each one stands for a certain type of website that was visited during the browsing session and how long they were on the website for. Whether they were Administrative, Informational, or Product Related. 
+
+-First, we can actually group the first six columns together! How exciting!And time saving! Each one stands for a certain type of website that was visited during the browsing session and how long they were on the website for. Whether they were Administrative, Informational, or Product Related. The time on the duration variables are in seconds.
 
 -Second, we come to the bounce rate, which is the percentage of people who entered into the site with the product and then left without doing anything related to purchasing.
+
 -Third, there is the exit rate, which is the percentage of page views in the last session out of all pageviews
+
 -Fourth, we find the Page Value, which is the average value of the page visited before a purchase is made
--Fifth, there is the Special Day, which is a numerical value that determines how close to a special day the purchase is made (Special Day being a holiday) It is calculated by looking at the order and delivery dates of items around the day.
--Fifth, the last variables all deal with the month the purchase was made in, the numerical values of the browser that was being used, the operating system, region, and traffic type. 
+
+-Fifth, there is the Special Day, which is a numerical value that determines how close to a special day the product's website is visited (Special Day being a holiday) It is calculated by looking at the order and delivery dates of items around the day. The closer to 1 the number is, the more likely the site visitation, and possible order, was made due to a holiday.
+
+-Sixth, the next variables all deal with the month the shopping was made in, the numerical values of the browser that was being used, the operating system that the shopper was using, region the shopper was in, and traffic type that the user belonged to. It also contains the variable visitor type, which details if the shopper was new or returning to the site.
+
+-Seventh, finally, the last two variables are called Weekend and Revenue. These are given boolean statements (True or False) to state whether someone was shopping on a weekend and if they made a purchase or not (in the Revenue column). Now that we have sorted these out, we can clean the data:
 
 For readability, let's rename the some of the columns,
 ```{r}
@@ -60,21 +71,24 @@ The next thing I will do is take some of the data and visualize it. The first th
 ggplot(TheShoppers, aes(x = Purchase)) + geom_bar()
 ```
 
-Wowzers! Look at how many shoppers are responsible! They didn't buy anything! This will surely be seen in the data later on. Now, let's make a bar graph about how many returning shoppers there were versus how many were new:
+Wowzers! Look at how many shoppers are responsible! They didn't buy anything! This will surely be seen in the data later on. We can use it in the other questions about purchases made. Now, let's make a bar graph about how many returning shoppers there were versus how many were new:
 
 ```{r}
 ggplot(TheShoppers, aes(x = VisitorType)) + geom_bar()
 ```
-From this we can see that most of the shoppers, and possible buyers, are actually returning, thus we can think that they might have possibly been planning on this purchase and not just buying impulsively. Now, we can make another bar graph related to how many purchases are made close to holidays:
+From this we can see that most of the shoppers, and possible buyers, are actually returning, thus we can think that they might have possibly been planning on this purchase and not just buying impulsively. This information can be used in any questions related to just new visitors or just returning visitors. Next, let's make a graph of the amount of shopping being done on the weekend:
+
+```{r}
+ggplot(TheShoppers, aes(x = Weekend)) + geom_bar()
+```
+This shows that most of the shoppers did their shopping on the weekdays. This could be from people getting done with work and relaxing by shopping online. If that is the case, then the weekdays would be the best time for ads to be targeted to users if an advertising agency was looking at this data.
+
+Now, the final graph I would like to make is a bar graph related to how many people were visiting sites close to the holidays:
 ```{r}
 ggplot(Shopping, aes(x = Holiday)) + geom_bar()
 ```
-From this we can see that the shoppers made their purchases more around regular days than holidays. Very interesting in how little it was, actually. I am thouroughly flabbergasted!
+From this, we can see that most of the possible shopping was done on days not related to holidays. This is important to see because it doesn't just take into account shoppers purchasing, but also shoppers not purchasing, thus we get a more well-rounded view of when a majority of the shopping is taking place. This is our first visualization with this, but I do think we will be breaking it up in the future and looking at different collections related to buyers and non-buyers and these holidays.
 
-The final graph I want to include is a bar graph about how much time was spent on the Product's Informational website. This can be graphed as:
-```{r}
-ggplot(Websites, aes(x = ProductRelated_Duration)) + geom_bar()
-```
 
 Now that we have done the intro to my data set and done some cleaning, I believe it is time to look at what I would like to find based on this data set. My questions I would like to answer are:
 
@@ -85,3 +99,4 @@ Now that we have done the intro to my data set and done some cleaning, I believe
 
 -What was the average time spent on all the websites before a purchase was made or not made? This will allow us to determine a frame of mind that a shopper could be "in the shopping mode" before they exit and realize they don't want to make the purchase.
 
+I am very excited to get further into this data and see how much information can be learned from this data set!
