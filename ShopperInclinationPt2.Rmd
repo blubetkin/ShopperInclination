@@ -1,0 +1,35 @@
+---
+title: "ShopperInclinationPt2(Modeling)"
+output: html_notebook
+---
+
+Now, to start this next deliverable, we will import our previous work and continue!
+```{r}
+#install.packages("tidyverse")
+library("knitr")
+purl("ShopperInclination.Rmd", output = "part1.r")
+source("part1.r")
+```
+Now that we have that done, let us import a new dataset that we have found to supplement our original dataset. It is unfortunatley not of a different type, but it does shed some light on how people purchase online. It supplements the original dataset by opening up an actual avenue to explore what people bought and how much they did when they do make purchases online. Importing it will give us:
+````{r}
+#library("tidyverse")
+library("rvest")
+#library("tidyr")
+library("readxl")
+
+online_purchases <- read_excel("Online Retail.xlsx")
+
+head(online_purchases)
+```
+Now, in this part of the project I would like to see if any of the variables in the first data-set can imply and predict a purchase and if they can, how much? First, let's create a training group and a testing group. We will test the training group against the testing group to see if any of our variables can predict if a shopper will buy or not.
+```{r}
+library("caret")
+set.seed(385)
+sample_selection <- createDataPartition(TheShoppers$Purchase, p = 0.75, list = FALSE)
+train <- TheShoppers[sample_selection,]
+test <- TheShoppers[-sample_selection,]
+train_model <- lm(purchase ~ OperatingSystems + Browser + Shoppers Region + TrafficType + VisitorType + Weekend, data = train)
+predictions <- train_model %>% predict(test)
+summary(train_model)
+predictions
+```

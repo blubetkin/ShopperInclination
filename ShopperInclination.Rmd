@@ -47,7 +47,7 @@ colnames(Shoppers)[colnames(Shoppers) == "BounceRates"] <- "Percentage that Left
 colnames(Shoppers)[colnames(Shoppers) == "ExitRates"] <- "Percentage of Page Views in Last Session (Out of all Views)"
 colnames(Shoppers)[colnames(Shoppers) == "Administrative"] <- "Administrative_Website"
 colnames(Shoppers)[colnames(Shoppers) == "Revenue"] <- "Purchase"
-colnames(Shoppers)[colnames(Shoppers) == "Region"] <- "Shopper's Region"
+colnames(Shoppers)[colnames(Shoppers) == "Region"] <- "Shoppers Region"
 colnames(Shoppers)[colnames(Shoppers) == "SpecialDay"] <- "Holiday"
 ```
 Now, this data set seems very big. It would be a good idea to separate some columns into some other tables. First, let's create a table that takes all of the data about the websites that were visited before a purchase was made and put them into their own table. This will allow us to have a quick reference for any information on the websites. 
