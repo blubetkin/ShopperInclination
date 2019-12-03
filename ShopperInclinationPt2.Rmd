@@ -17,9 +17,9 @@ library("rvest")
 #library("tidyr")
 library("readxl")
 
-online_purchases <- read_excel("Online Retail.xlsx")
+#online_purchases <- read_excel("Online Retail.xlsx")
 
-head(online_purchases)
+#head(online_purchases)
 ```
 Now, in this part of the project I would like to see if any of the variables in the first data-set can imply and predict a purchase and if they can, how much? First, let's create a training group and a testing group. We will test the training group against the testing group to see if any of our variables can predict if a shopper will buy or not.
 ```{r}
@@ -28,8 +28,29 @@ set.seed(385)
 sample_selection <- createDataPartition(TheShoppers$Purchase, p = 0.75, list = FALSE)
 train <- TheShoppers[sample_selection,]
 test <- TheShoppers[-sample_selection,]
-train_model <- lm(purchase ~ OperatingSystems + Browser + Shoppers Region + TrafficType + VisitorType + Weekend, data = train)
+train_model <- lm(Purchase ~ OperatingSystems + Browser + Shoppers_Region + TrafficType + VisitorType + Weekend, data = train)
 predictions <- train_model %>% predict(test)
 summary(train_model)
-predictions
+head(predictions)
 ```
+From this, we can see that we actually do have some data that is pertinent to our data. Here, we can see that being a returning visitor meant that you were more likely to buy, thus most people did not make impulse purchases. Also, the fact that it was a weekend also influences people making purchases. Very interesting. Maybe we can make the assumption that because most people have the weekends off to do what they like they go online and shop? It does follow some reason. The more interesting (and funny, to me) is that Operating Stystems and browser's do influence these. Could this just be spurrelous correlation? Probably. Let's see what happens when we run the same code, but without the variables that don't influence our purchases:
+```{r}
+sample_selection <- createDataPartition(TheShoppers$Purchase, p = 0.75, list = FALSE)
+train <- TheShoppers[sample_selection,]
+test <- TheShoppers[-sample_selection,]
+train_model <- lm(Purchase ~ OperatingSystems + Browser +  VisitorType + Weekend, data = train)
+predictions <- train_model %>% predict(test)
+summary(train_model)
+head(predictions)
+```
+As we can see, after removing some more of the data that doesn't pertain we will find that Operating systems no longer is needed, but Browser is still very influential. This is very interesting. Let's run it one more time:
+```{r}
+sample_selection <- createDataPartition(TheShoppers$Purchase, p = 0.75, list = FALSE)
+train <- TheShoppers[sample_selection,]
+test <- TheShoppers[-sample_selection,]
+train_model <- lm(Purchase ~ Browser + VisitorType + Weekend, data = train)
+predictions <- train_model %>% predict(test)
+summary(train_model)
+head(predictions)
+```
+And now we have come to the final model. It seems that everything left does have an influence on purchases made online (even Browser). As you can see on the bottom, we have actually been predicting our outcomes for the data at different points. Let's see how accurate our model is:

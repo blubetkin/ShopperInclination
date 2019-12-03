@@ -11,7 +11,7 @@ The title of this data set is "Online Shoppers Purchasing Intention Data Set it 
 This data set is showing the inclination of online shoppers to buy certain products online when they are new or returning to a new website. It follows over 12,000 people as they buy and not buy. I chose this data set because I, as many others (at least 12,000), do enjoy partaking in online shopping, especially since credit cards are a thing and credit reports are just numbers. First, let us import the data and we can get started!
 
 ```{r}
-install.packages("tidyverse", repos = "http://cran.us.r-project.org")
+#install.packages("tidyverse", repos = "http://cran.us.r-project.org")
 library("tidyverse")
 
 Shoppers <- read_csv("https://raw.githubusercontent.com/blubetkin/ShopperInclination/master/online_shoppers_intention.csv")
@@ -47,7 +47,7 @@ colnames(Shoppers)[colnames(Shoppers) == "BounceRates"] <- "Percentage that Left
 colnames(Shoppers)[colnames(Shoppers) == "ExitRates"] <- "Percentage of Page Views in Last Session (Out of all Views)"
 colnames(Shoppers)[colnames(Shoppers) == "Administrative"] <- "Administrative_Website"
 colnames(Shoppers)[colnames(Shoppers) == "Revenue"] <- "Purchase"
-colnames(Shoppers)[colnames(Shoppers) == "Region"] <- "Shoppers Region"
+colnames(Shoppers)[colnames(Shoppers) == "Region"] <- "Shoppers_Region"
 colnames(Shoppers)[colnames(Shoppers) == "SpecialDay"] <- "Holiday"
 ```
 Now, this data set seems very big. It would be a good idea to separate some columns into some other tables. First, let's create a table that takes all of the data about the websites that were visited before a purchase was made and put them into their own table. This will allow us to have a quick reference for any information on the websites. 
@@ -65,7 +65,7 @@ Shopping <- tibble("Percentage that Left Website Immediately" = Shoppers$"Percen
 Finally, we will make a final table that collects all the data on the shoppers, their computers, what browsers they are using, region they're in, etc. This will make it easy for us to identify things we want to know about the shoppers themselves.
 
 ```{r}
-TheShoppers <- tibble(OperatingSystems = Shoppers$OperatingSystems, Browser = Shoppers$Browser, "Shopper's Region" = Shoppers$"Shopper's Region", TrafficType = Shoppers$TrafficType, VisitorType = Shoppers$VisitorType, Weekend = Shoppers$Weekend, Purchase = Shoppers$Purchase)
+TheShoppers <- tibble(OperatingSystems = Shoppers$OperatingSystems, Browser = Shoppers$Browser, Shoppers_Region = Shoppers$Shoppers_Region, TrafficType = Shoppers$TrafficType, VisitorType = Shoppers$VisitorType, Weekend = Shoppers$Weekend, Purchase = Shoppers$Purchase)
 ```
 
 The next thing I will do is take some of the data and visualize it. The first thing we will visualize is how many buyers there were online. To represent this we will use a simple bar chart:

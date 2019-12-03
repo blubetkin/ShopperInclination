@@ -1752,68 +1752,249 @@ summary {
 <p>Now, to start this next deliverable, we will import our previous work and continue!</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2luc3RhbGwucGFja2FnZXMoXCJ0aWR5dmVyc2VcIilcbmxpYnJhcnkoXCJrbml0clwiKVxucHVybChcIlNob3BwZXJJbmNsaW5hdGlvbi5SbWRcIiwgb3V0cHV0ID0gXCJwYXJ0MS5yXCIpXG5zb3VyY2UoXCJwYXJ0MS5yXCIpXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2luc3RhbGwucGFja2FnZXMoXCJ0aWR5dmVyc2VcIilcbmxpYnJhcnkoXCJrbml0clwiKVxucHVybChcIlNob3BwZXJJbmNsaW5hdGlvbi5SbWRcIiwgb3V0cHV0ID0gXCJwYXJ0MS5yXCIpXG5gYGAifQ== -->
 <pre class="r"><code>#install.packages(&quot;tidyverse&quot;)
 library(&quot;knitr&quot;)
-purl(&quot;ShopperInclination.Rmd&quot;, output = &quot;part1.r&quot;)
-source(&quot;part1.r&quot;)</code></pre>
+purl(&quot;ShopperInclination.Rmd&quot;, output = &quot;part1.r&quot;)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5cbnByb2Nlc3NpbmcgZmlsZTogU2hvcHBlckluY2xpbmF0aW9uLlJtZFxuIn0= -->
+<pre><code>
+
+processing file: ShopperInclination.Rmd</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG4gIHwgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgMCVcbiAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG4gIHwuLi4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgICA1JVxuICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiAgfC4uLi4uLi4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgMTElXG4gIHwgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuICB8Li4uLi4uLi4uLiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAxNiVcbiAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG4gIHwuLi4uLi4uLi4uLi4uLiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgIDIxJVxuICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiAgfC4uLi4uLi4uLi4uLi4uLi4uICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgMjYlXG4gIHwgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuICB8Li4uLi4uLi4uLi4uLi4uLi4uLi4uICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAzMiVcbiAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG4gIHwuLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgIDM3JVxuICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiAgfC4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgNDIlXG4gIHwgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuICB8Li4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICA0NyVcbiAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG4gIHwuLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgIDUzJVxuICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiAgfC4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgNTglXG4gIHwgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuICB8Li4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4gICAgICAgICAgICAgICAgICAgICAgICB8ICA2MyVcbiAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG4gIHwuLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLiAgICAgICAgICAgICAgICAgICAgIHwgIDY4JVxuICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiAgfC4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLiAgICAgICAgICAgICAgICAgfCAgNzQlXG4gIHwgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuICB8Li4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uICAgICAgICAgICAgICB8ICA3OSVcbiAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG4gIHwuLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uICAgICAgICAgIHwgIDg0JVxuICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiAgfC4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4gICAgICAgfCAgODklXG4gIHwgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuICB8Li4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4gICB8ICA5NSVcbiAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG4gIHwuLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLnwgMTAwJVxuIn0= -->
+<pre><code>
+  |                                                                       
+  |                                                                 |   0%
+  |                                                                       
+  |...                                                              |   5%
+  |                                                                       
+  |.......                                                          |  11%
+  |                                                                       
+  |..........                                                       |  16%
+  |                                                                       
+  |..............                                                   |  21%
+  |                                                                       
+  |.................                                                |  26%
+  |                                                                       
+  |.....................                                            |  32%
+  |                                                                       
+  |........................                                         |  37%
+  |                                                                       
+  |...........................                                      |  42%
+  |                                                                       
+  |...............................                                  |  47%
+  |                                                                       
+  |..................................                               |  53%
+  |                                                                       
+  |......................................                           |  58%
+  |                                                                       
+  |.........................................                        |  63%
+  |                                                                       
+  |............................................                     |  68%
+  |                                                                       
+  |................................................                 |  74%
+  |                                                                       
+  |...................................................              |  79%
+  |                                                                       
+  |.......................................................          |  84%
+  |                                                                       
+  |..........................................................       |  89%
+  |                                                                       
+  |..............................................................   |  95%
+  |                                                                       
+  |.................................................................| 100%</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoib3V0cHV0IGZpbGU6IHBhcnQxLnJcbiJ9 -->
+<pre><code>output file: part1.r</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwicGFydDEuclwiXG4ifQ== -->
+<pre><code>[1] &quot;part1.r&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwicGFydDEuclwiKVxuYGBgIn0= -->
+<pre class="r"><code>source(&quot;part1.r&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUGFyc2VkIHdpdGggY29sdW1uIHNwZWNpZmljYXRpb246XG5jb2xzKFxuICBBZG1pbmlzdHJhdGl2ZSA9IFx1MDAxYlszMm1jb2xfZG91YmxlKClcdTAwMWJbMzltLFxuICBBZG1pbmlzdHJhdGl2ZV9EdXJhdGlvbiA9IFx1MDAxYlszMm1jb2xfZG91YmxlKClcdTAwMWJbMzltLFxuICBJbmZvcm1hdGlvbmFsID0gXHUwMDFiWzMybWNvbF9kb3VibGUoKVx1MDAxYlszOW0sXG4gIEluZm9ybWF0aW9uYWxfRHVyYXRpb24gPSBcdTAwMWJbMzJtY29sX2RvdWJsZSgpXHUwMDFiWzM5bSxcbiAgUHJvZHVjdFJlbGF0ZWQgPSBcdTAwMWJbMzJtY29sX2RvdWJsZSgpXHUwMDFiWzM5bSxcbiAgUHJvZHVjdFJlbGF0ZWRfRHVyYXRpb24gPSBcdTAwMWJbMzJtY29sX2RvdWJsZSgpXHUwMDFiWzM5bSxcbiAgQm91bmNlUmF0ZXMgPSBcdTAwMWJbMzJtY29sX2RvdWJsZSgpXHUwMDFiWzM5bSxcbiAgRXhpdFJhdGVzID0gXHUwMDFiWzMybWNvbF9kb3VibGUoKVx1MDAxYlszOW0sXG4gIFBhZ2VWYWx1ZXMgPSBcdTAwMWJbMzJtY29sX2RvdWJsZSgpXHUwMDFiWzM5bSxcbiAgU3BlY2lhbERheSA9IFx1MDAxYlszMm1jb2xfZG91YmxlKClcdTAwMWJbMzltLFxuICBNb250aCA9IFx1MDAxYlszMW1jb2xfY2hhcmFjdGVyKClcdTAwMWJbMzltLFxuICBPcGVyYXRpbmdTeXN0ZW1zID0gXHUwMDFiWzMybWNvbF9kb3VibGUoKVx1MDAxYlszOW0sXG4gIEJyb3dzZXIgPSBcdTAwMWJbMzJtY29sX2RvdWJsZSgpXHUwMDFiWzM5bSxcbiAgUmVnaW9uID0gXHUwMDFiWzMybWNvbF9kb3VibGUoKVx1MDAxYlszOW0sXG4gIFRyYWZmaWNUeXBlID0gXHUwMDFiWzMybWNvbF9kb3VibGUoKVx1MDAxYlszOW0sXG4gIFZpc2l0b3JUeXBlID0gXHUwMDFiWzMxbWNvbF9jaGFyYWN0ZXIoKVx1MDAxYlszOW0sXG4gIFdlZWtlbmQgPSBcdTAwMWJbMzNtY29sX2xvZ2ljYWwoKVx1MDAxYlszOW0sXG4gIFJldmVudWUgPSBcdTAwMWJbMzNtY29sX2xvZ2ljYWwoKVx1MDAxYlszOW1cbilcbiJ9 -->
+<pre><code>Parsed with column specification:
+cols(
+  Administrative = [32mcol_double()[39m,
+  Administrative_Duration = [32mcol_double()[39m,
+  Informational = [32mcol_double()[39m,
+  Informational_Duration = [32mcol_double()[39m,
+  ProductRelated = [32mcol_double()[39m,
+  ProductRelated_Duration = [32mcol_double()[39m,
+  BounceRates = [32mcol_double()[39m,
+  ExitRates = [32mcol_double()[39m,
+  PageValues = [32mcol_double()[39m,
+  SpecialDay = [32mcol_double()[39m,
+  Month = [31mcol_character()[39m,
+  OperatingSystems = [32mcol_double()[39m,
+  Browser = [32mcol_double()[39m,
+  Region = [32mcol_double()[39m,
+  TrafficType = [32mcol_double()[39m,
+  VisitorType = [31mcol_character()[39m,
+  Weekend = [33mcol_logical()[39m,
+  Revenue = [33mcol_logical()[39m
+)</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Now that we have that done, let us import a new dataset that we have found to supplement our original dataset. It is unfortunatley not of a different type, but it does shed some light on how people purchase online. It supplements the original dataset by opening up an actual avenue to explore what people bought and how much they did when they do make purchases online. Importing it will give us:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2xpYnJhcnkoXCJ0aWR5dmVyc2VcIilcbmxpYnJhcnkoXCJydmVzdFwiKVxuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2xpYnJhcnkoXCJ0aWR5dmVyc2VcIilcbmxpYnJhcnkoXCJydmVzdFwiKVxuI2xpYnJhcnkoXCJ0aWR5clwiKVxubGlicmFyeShcInJlYWR4bFwiKVxuXG4jb25saW5lX3B1cmNoYXNlcyA8LSByZWFkX2V4Y2VsKFwiT25saW5lIFJldGFpbC54bHN4XCIpXG5cbiNoZWFkKG9ubGluZV9wdXJjaGFzZXMpXG5gYGAifQ== -->
 <pre class="r"><code>#library(&quot;tidyverse&quot;)
-library(&quot;rvest&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiTG9hZGluZyByZXF1aXJlZCBwYWNrYWdlOiB4bWwyXG5cbkF0dGFjaGluZyBwYWNrYWdlOiDjpLzjuLFydmVzdOOkvOO4slxuXG5UaGUgZm9sbG93aW5nIG9iamVjdCBpcyBtYXNrZWQgZnJvbSDjpLzjuLFwYWNrYWdlOnB1cnJy46S847iyOlxuXG4gICAgcGx1Y2tcblxuVGhlIGZvbGxvd2luZyBvYmplY3QgaXMgbWFza2VkIGZyb20g46S847ixcGFja2FnZTpyZWFkcuOkvOO4sjpcblxuICAgIGd1ZXNzX2VuY29kaW5nXG4ifQ== -->
-<pre><code>Loading required package: xml2
-
-Attaching package: 㤼㸱rvest㤼㸲
-
-The following object is masked from 㤼㸱package:purrr㤼㸲:
-
-    pluck
-
-The following object is masked from 㤼㸱package:readr㤼㸲:
-
-    guess_encoding</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2xpYnJhcnkoXCJ0aWR5clwiKVxubGlicmFyeShcInJlYWR4bFwiKVxuXG5vbmxpbmVfcHVyY2hhc2VzIDwtIHJlYWRfZXhjZWwoXCJPbmxpbmUgUmV0YWlsLnhsc3hcIilcblxuaGVhZChvbmxpbmVfcHVyY2hhc2VzKVxuYGBgIn0= -->
-<pre class="r"><code>#library(&quot;tidyr&quot;)
+library(&quot;rvest&quot;)
+#library(&quot;tidyr&quot;)
 library(&quot;readxl&quot;)
 
-online_purchases &lt;- read_excel(&quot;Online Retail.xlsx&quot;)
+#online_purchases &lt;- read_excel(&quot;Online Retail.xlsx&quot;)
 
-head(online_purchases)</code></pre>
+#head(online_purchases)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibmNvbCI6OCwibnJvdyI6Nn0sInJkZiI6Ikg0c0lBQUFBQUFBQUJyMVV6VzdUUUJCMmZwd21ybHFRZXVHQXdnck9pZkxUSkhCQWltT2J4SXBycC9aR0NVZmp1TVZxc2xzNUc2Q2M0TUJEd0FQd0RMd0c0akY0QXc0TnUvWnVJRDcxZ0ZqSm1wbHZ2cG1kMlJuWjFlZHRaYTVJa2xTUUNxV2NWSkNwS3BXMFNiUFZhVWxTTVUrdG5GU1VLa3krbzZ3VHFwVHBkNS9SdUtQVWFYZmIzYzQvc2pLNW4zYWFyYmJLTGJuWGJIVGFPOWZwYWFNNytHTTFXcytHZTVZaHdscXRIbXRuTC9QajJjaUVCaGlwOXRDMGgyQmtxQzRFc0dhWnd4RUVJOGZTRFpjelQxTG1tUUZWQzFpcURRM1g1cTZxNWhycUdkQ21FMU5QVTNoQWMxU1lwTjBsZURLMlRRZ05IVXh0MDdIQkMwdWw5emtRekZTYUNnd2NDQzFSYXRXbHRKbmpXTlpMUm9HbUFYaWRMSG1kc3g1NkJnUTlNRkFIVTI4MFZvRnRlSkExTVhEbWhrZjl4NnpQL2dNcE9Uc0pNcmFRa2ppRkpFNzk4ZnpqVjZyY1ZXYldSQTZXL25yTkh6dlB3WU9KNDVuemdJanhKQ2JKUnBMM0dJVThVb0NGS2RTb3VOMTFWYnhJVHYrdyt1Mzg1NmRIL1JMdlF0aENWait6ODJVWDl4MTlTSGgzbEpsdE9aNmlpSVFMTUk3UTVRS3Yvak9hZVNma3IwTHh3bVVPVmt6MEJrZEJhR01CZUFRSFZ4cGVoQnc0MU1OMUVFZlhKTUtJUStYempZOUlSRzRFaFNmUmZTS2lLcXlVU1V4QkRpamFaazN3S294TlhReFh3eHRFNHB0TW1aVVl2NjJMVW8vWU1yQ0gzVzYzdjFKaWZwc1p0Ykx3aVYrL2lHbElPdkc5ZEFjNHFad215N09ma0p3SnpzVVo0TjRHc2NzWHRlRDFCbDNWbXV5Q3hKMmVJNjZYL3RMTDZaVkZVWmdzMWpWRWx4RVNEeUF2L1ZmaFVreUtOcG4wV0wrT0l5VDJXNkhvdWs0dzhRVlBDZkJTSU9rMjMvNEdmZmpYMm53RkFBQT0ifQ== -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["InvoiceNo"],"name":[1],"type":["chr"],"align":["left"]},{"label":["StockCode"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Description"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Quantity"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["InvoiceDate"],"name":[5],"type":["S3: POSIXct"],"align":["right"]},{"label":["UnitPrice"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["CustomerID"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["Country"],"name":[8],"type":["chr"],"align":["left"]}],"data":[{"1":"536365","2":"85123A","3":"WHITE HANGING HEART T-LIGHT HOLDER","4":"6","5":"2010-12-01 08:26:00","6":"2.55","7":"17850","8":"United Kingdom"},{"1":"536365","2":"71053","3":"WHITE METAL LANTERN","4":"6","5":"2010-12-01 08:26:00","6":"3.39","7":"17850","8":"United Kingdom"},{"1":"536365","2":"84406B","3":"CREAM CUPID HEARTS COAT HANGER","4":"8","5":"2010-12-01 08:26:00","6":"2.75","7":"17850","8":"United Kingdom"},{"1":"536365","2":"84029G","3":"KNITTED UNION FLAG HOT WATER BOTTLE","4":"6","5":"2010-12-01 08:26:00","6":"3.39","7":"17850","8":"United Kingdom"},{"1":"536365","2":"84029E","3":"RED WOOLLY HOTTIE WHITE HEART.","4":"6","5":"2010-12-01 08:26:00","6":"3.39","7":"17850","8":"United Kingdom"},{"1":"536365","2":"22752","3":"SET 7 BABUSHKA NESTING BOXES","4":"2","5":"2010-12-01 08:26:00","6":"7.65","7":"17850","8":"United Kingdom"}],"options":{"columns":{"min":{},"max":[10],"total":[8]},"rows":{"min":[10],"max":[10],"total":[6]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Now, in this part of the project I would like to see if any of the variables in the first data-set can imply and predict a purchase and if they can, how much? First, let’s create a training group and a testing group. We will test the training group against the testing group to see if any of our variables can predict if a shopper will buy or not.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShcImNhcmV0XCIpXG5zZXQuc2VlZCgzODUpXG5zYW1wbGVfc2VsZWN0aW9uIDwtIGNyZWF0ZURhdGFQYXJ0aXRpb24oVGhlU2hvcHBlcnMkUHVyY2hhc2UsIHAgPSAwLjc1LCBsaXN0ID0gRkFMU0UpXG50cmFpbiA8LSBUaGVTaG9wcGVyc1tzYW1wbGVfc2VsZWN0aW9uLF1cbnRlc3QgPC0gVGhlU2hvcHBlcnNbLXNhbXBsZV9zZWxlY3Rpb24sXVxudHJhaW5fbW9kZWwgPC0gbG0ocHVyY2hhc2UgfiBPcGVyYXRpbmdTeXN0ZW1zICsgQnJvd3NlciArIFNob3BwZXJzIFJlZ2lvbiArIFRyYWZmaWNUeXBlICsgVmlzaXRvclR5cGUgKyBXZWVrZW5kLCBkYXRhID0gdHJhaW4pXG5wcmVkaWN0aW9ucyA8LSB0cmFpbl9tb2RlbCAlPiUgcHJlZGljdCh0ZXN0KVxuc3VtbWFyeSh0cmFpbl9tb2RlbClcbnByZWRpY3Rpb25zXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShcImNhcmV0XCIpXG5zZXQuc2VlZCgzODUpXG5zYW1wbGVfc2VsZWN0aW9uIDwtIGNyZWF0ZURhdGFQYXJ0aXRpb24oVGhlU2hvcHBlcnMkUHVyY2hhc2UsIHAgPSAwLjc1LCBsaXN0ID0gRkFMU0UpXG50cmFpbiA8LSBUaGVTaG9wcGVyc1tzYW1wbGVfc2VsZWN0aW9uLF1cbnRlc3QgPC0gVGhlU2hvcHBlcnNbLXNhbXBsZV9zZWxlY3Rpb24sXVxudHJhaW5fbW9kZWwgPC0gbG0oUHVyY2hhc2UgfiBPcGVyYXRpbmdTeXN0ZW1zICsgQnJvd3NlciArIFNob3BwZXJzX1JlZ2lvbiArIFRyYWZmaWNUeXBlICsgVmlzaXRvclR5cGUgKyBXZWVrZW5kLCBkYXRhID0gdHJhaW4pXG5wcmVkaWN0aW9ucyA8LSB0cmFpbl9tb2RlbCAlPiUgcHJlZGljdCh0ZXN0KVxuc3VtbWFyeSh0cmFpbl9tb2RlbClcbmBgYCJ9 -->
 <pre class="r"><code>library(&quot;caret&quot;)
 set.seed(385)
 sample_selection &lt;- createDataPartition(TheShoppers$Purchase, p = 0.75, list = FALSE)
 train &lt;- TheShoppers[sample_selection,]
 test &lt;- TheShoppers[-sample_selection,]
-train_model &lt;- lm(purchase ~ OperatingSystems + Browser + Shoppers Region + TrafficType + VisitorType + Weekend, data = train)
+train_model &lt;- lm(Purchase ~ OperatingSystems + Browser + Shoppers_Region + TrafficType + VisitorType + Weekend, data = train)
 predictions &lt;- train_model %&gt;% predict(test)
-summary(train_model)
-predictions</code></pre>
+summary(train_model)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5DYWxsOlxubG0oZm9ybXVsYSA9IFB1cmNoYXNlIH4gT3BlcmF0aW5nU3lzdGVtcyArIEJyb3dzZXIgKyBTaG9wcGVyc19SZWdpb24gKyBcbiAgICBUcmFmZmljVHlwZSArIFZpc2l0b3JUeXBlICsgV2Vla2VuZCwgZGF0YSA9IHRyYWluKVxuXG5SZXNpZHVhbHM6XG4gICAgTWluICAgICAgMVEgIE1lZGlhbiAgICAgIDNRICAgICBNYXggXG4tMC4zMDM1IC0wLjE0NzMgLTAuMTM2OSAtMC4xMjY2ICAwLjg5MzkgXG5cbkNvZWZmaWNpZW50czpcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBFc3RpbWF0ZSBTdGQuIEVycm9yIHQgdmFsdWUgUHIoPnx0fCkgICAgXG4oSW50ZXJjZXB0KSAgICAgICAgICAgICAgICAgICAyLjU5OWUtMDEgIDEuNTA4ZS0wMiAgMTcuMjMzICAgPDJlLTE2ICoqKlxuT3BlcmF0aW5nU3lzdGVtcyAgICAgICAgICAgICAtOC42NDZlLTAzICA0LjM4NmUtMDMgIC0xLjk3MSAgIDAuMDQ4NyAqICBcbkJyb3dzZXIgICAgICAgICAgICAgICAgICAgICAgIDQuNDg5ZS0wMyAgMi4zMjFlLTAzICAgMS45MzUgICAwLjA1MzEgLiAgXG5TaG9wcGVyc19SZWdpb24gICAgICAgICAgICAgIC0xLjMwOWUtMDMgIDEuNTczZS0wMyAgLTAuODMyICAgMC40MDU0ICAgIFxuVHJhZmZpY1R5cGUgICAgICAgICAgICAgICAgICAtNC4zOTdlLTA1ICA5LjUxNmUtMDQgIC0wLjA0NiAgIDAuOTYzMSAgICBcblZpc2l0b3JUeXBlT3RoZXIgICAgICAgICAgICAgLTYuMzA3ZS0wMiAgNS4yNzllLTAyICAtMS4xOTUgICAwLjIzMjIgICAgXG5WaXNpdG9yVHlwZVJldHVybmluZ19WaXNpdG9yIC0xLjEzMWUtMDEgIDEuMDg4ZS0wMiAtMTAuNDAzICAgPDJlLTE2ICoqKlxuV2Vla2VuZFRSVUUgICAgICAgICAgICAgICAgICAgMS44MTdlLTAyICA4Ljg5MGUtMDMgICAyLjA0NCAgIDAuMDQxMCAqICBcbi0tLVxuU2lnbmlmLiBjb2RlczogIDAg4oCYKioq4oCZIDAuMDAxIOKAmCoq4oCZIDAuMDEg4oCYKuKAmSAwLjA1IOKAmC7igJkgMC4xIOKAmCDigJkgMVxuXG5SZXNpZHVhbCBzdGFuZGFyZCBlcnJvcjogMC4zNTk0IG9uIDkyNDAgZGVncmVlcyBvZiBmcmVlZG9tXG5NdWx0aXBsZSBSLXNxdWFyZWQ6ICAwLjAxMzA2LFx0QWRqdXN0ZWQgUi1zcXVhcmVkOiAgMC4wMTIzMSBcbkYtc3RhdGlzdGljOiAxNy40NyBvbiA3IGFuZCA5MjQwIERGLCAgcC12YWx1ZTogPCAyLjJlLTE2XG4ifQ== -->
+<pre><code>
+Call:
+lm(formula = Purchase ~ OperatingSystems + Browser + Shoppers_Region + 
+    TrafficType + VisitorType + Weekend, data = train)
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlNob3BwZXJJbmNsaW5hdGlvblB0MihNb2RlbGluZykiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpOb3csIHRvIHN0YXJ0IHRoaXMgbmV4dCBkZWxpdmVyYWJsZSwgd2Ugd2lsbCBpbXBvcnQgb3VyIHByZXZpb3VzIHdvcmsgYW5kIGNvbnRpbnVlIQ0KYGBge3J9DQojaW5zdGFsbC5wYWNrYWdlcygidGlkeXZlcnNlIikNCmxpYnJhcnkoImtuaXRyIikNCnB1cmwoIlNob3BwZXJJbmNsaW5hdGlvbi5SbWQiLCBvdXRwdXQgPSAicGFydDEuciIpDQpzb3VyY2UoInBhcnQxLnIiKQ0KYGBgDQpOb3cgdGhhdCB3ZSBoYXZlIHRoYXQgZG9uZSwgbGV0IHVzIGltcG9ydCBhIG5ldyBkYXRhc2V0IHRoYXQgd2UgaGF2ZSBmb3VuZCB0byBzdXBwbGVtZW50IG91ciBvcmlnaW5hbCBkYXRhc2V0LiBJdCBpcyB1bmZvcnR1bmF0bGV5IG5vdCBvZiBhIGRpZmZlcmVudCB0eXBlLCBidXQgaXQgZG9lcyBzaGVkIHNvbWUgbGlnaHQgb24gaG93IHBlb3BsZSBwdXJjaGFzZSBvbmxpbmUuIEl0IHN1cHBsZW1lbnRzIHRoZSBvcmlnaW5hbCBkYXRhc2V0IGJ5IG9wZW5pbmcgdXAgYW4gYWN0dWFsIGF2ZW51ZSB0byBleHBsb3JlIHdoYXQgcGVvcGxlIGJvdWdodCBhbmQgaG93IG11Y2ggdGhleSBkaWQgd2hlbiB0aGV5IGRvIG1ha2UgcHVyY2hhc2VzIG9ubGluZS4gSW1wb3J0aW5nIGl0IHdpbGwgZ2l2ZSB1czoNCmBgYGB7cn0NCiNsaWJyYXJ5KCJ0aWR5dmVyc2UiKQ0KbGlicmFyeSgicnZlc3QiKQ0KI2xpYnJhcnkoInRpZHlyIikNCmxpYnJhcnkoInJlYWR4bCIpDQoNCm9ubGluZV9wdXJjaGFzZXMgPC0gcmVhZF9leGNlbCgiT25saW5lIFJldGFpbC54bHN4IikNCg0KaGVhZChvbmxpbmVfcHVyY2hhc2VzKQ0KYGBgDQpOb3csIGluIHRoaXMgcGFydCBvZiB0aGUgcHJvamVjdCBJIHdvdWxkIGxpa2UgdG8gc2VlIGlmIGFueSBvZiB0aGUgdmFyaWFibGVzIGluIHRoZSBmaXJzdCBkYXRhLXNldCBjYW4gaW1wbHkgYW5kIHByZWRpY3QgYSBwdXJjaGFzZSBhbmQgaWYgdGhleSBjYW4sIGhvdyBtdWNoPyBGaXJzdCwgbGV0J3MgY3JlYXRlIGEgdHJhaW5pbmcgZ3JvdXAgYW5kIGEgdGVzdGluZyBncm91cC4gV2Ugd2lsbCB0ZXN0IHRoZSB0cmFpbmluZyBncm91cCBhZ2FpbnN0IHRoZSB0ZXN0aW5nIGdyb3VwIHRvIHNlZSBpZiBhbnkgb2Ygb3VyIHZhcmlhYmxlcyBjYW4gcHJlZGljdCBpZiBhIHNob3BwZXIgd2lsbCBidXkgb3Igbm90Lg0KYGBge3J9DQpsaWJyYXJ5KCJjYXJldCIpDQpzZXQuc2VlZCgzODUpDQpzYW1wbGVfc2VsZWN0aW9uIDwtIGNyZWF0ZURhdGFQYXJ0aXRpb24oVGhlU2hvcHBlcnMkUHVyY2hhc2UsIHAgPSAwLjc1LCBsaXN0ID0gRkFMU0UpDQp0cmFpbiA8LSBUaGVTaG9wcGVyc1tzYW1wbGVfc2VsZWN0aW9uLF0NCnRlc3QgPC0gVGhlU2hvcHBlcnNbLXNhbXBsZV9zZWxlY3Rpb24sXQ0KdHJhaW5fbW9kZWwgPC0gbG0ocHVyY2hhc2UgfiBPcGVyYXRpbmdTeXN0ZW1zICsgQnJvd3NlciArIFNob3BwZXJzIFJlZ2lvbiArIFRyYWZmaWNUeXBlICsgVmlzaXRvclR5cGUgKyBXZWVrZW5kLCBkYXRhID0gdHJhaW4pDQpwcmVkaWN0aW9ucyA8LSB0cmFpbl9tb2RlbCAlPiUgcHJlZGljdCh0ZXN0KQ0Kc3VtbWFyeSh0cmFpbl9tb2RlbCkNCnByZWRpY3Rpb25zDQpgYGANCg==</div>
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-0.3035 -0.1473 -0.1369 -0.1266  0.8939 
+
+Coefficients:
+                               Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)                   2.599e-01  1.508e-02  17.233   &lt;2e-16 ***
+OperatingSystems             -8.646e-03  4.386e-03  -1.971   0.0487 *  
+Browser                       4.489e-03  2.321e-03   1.935   0.0531 .  
+Shoppers_Region              -1.309e-03  1.573e-03  -0.832   0.4054    
+TrafficType                  -4.397e-05  9.516e-04  -0.046   0.9631    
+VisitorTypeOther             -6.307e-02  5.279e-02  -1.195   0.2322    
+VisitorTypeReturning_Visitor -1.131e-01  1.088e-02 -10.403   &lt;2e-16 ***
+WeekendTRUE                   1.817e-02  8.890e-03   2.044   0.0410 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.3594 on 9240 degrees of freedom
+Multiple R-squared:  0.01306,   Adjusted R-squared:  0.01231 
+F-statistic: 17.47 on 7 and 9240 DF,  p-value: &lt; 2.2e-16</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaGVhZChwcmVkaWN0aW9ucylcbmBgYCJ9 -->
+<pre class="r"><code>head(predictions)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICAgICAxICAgICAgICAgMiAgICAgICAgIDMgICAgICAgICA0ICAgICAgICAgNSAgICAgICAgIDYgXG4wLjEyNjk3OTcgMC4xNDMzMzg5IDAuMTUwNDQ2MCAwLjE1MDAwMTAgMC4xNDU5NTY3IDAuMTM2OTc4MSBcbiJ9 -->
+<pre><code>        1         2         3         4         5         6 
+0.1269797 0.1433389 0.1504460 0.1500010 0.1459567 0.1369781 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>From this, we can see that we actually do have some data that is pertinent to our data. Here, we can see that being a returning visitor meant that you were more likely to buy, thus most people did not make impulse purchases. Also, the fact that it was a weekend also influences people making purchases. Very interesting. Maybe we can make the assumption that because most people have the weekends off to do what they like they go online and shop? It does follow some reason. The more interesting (and funny, to me) is that Operating Stystems and browser’s do influence these. Could this just be spurrelous correlation? Probably. Let’s see what happens when we run the same code, but without the variables that don’t influence our purchases:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2FtcGxlX3NlbGVjdGlvbiA8LSBjcmVhdGVEYXRhUGFydGl0aW9uKFRoZVNob3BwZXJzJFB1cmNoYXNlLCBwID0gMC43NSwgbGlzdCA9IEZBTFNFKVxudHJhaW4gPC0gVGhlU2hvcHBlcnNbc2FtcGxlX3NlbGVjdGlvbixdXG50ZXN0IDwtIFRoZVNob3BwZXJzWy1zYW1wbGVfc2VsZWN0aW9uLF1cbnRyYWluX21vZGVsIDwtIGxtKFB1cmNoYXNlIH4gT3BlcmF0aW5nU3lzdGVtcyArIEJyb3dzZXIgKyAgVmlzaXRvclR5cGUgKyBXZWVrZW5kLCBkYXRhID0gdHJhaW4pXG5wcmVkaWN0aW9ucyA8LSB0cmFpbl9tb2RlbCAlPiUgcHJlZGljdCh0ZXN0KVxuc3VtbWFyeSh0cmFpbl9tb2RlbClcbmBgYCJ9 -->
+<pre class="r"><code>sample_selection &lt;- createDataPartition(TheShoppers$Purchase, p = 0.75, list = FALSE)
+train &lt;- TheShoppers[sample_selection,]
+test &lt;- TheShoppers[-sample_selection,]
+train_model &lt;- lm(Purchase ~ OperatingSystems + Browser +  VisitorType + Weekend, data = train)
+predictions &lt;- train_model %&gt;% predict(test)
+summary(train_model)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5DYWxsOlxubG0oZm9ybXVsYSA9IFB1cmNoYXNlIH4gT3BlcmF0aW5nU3lzdGVtcyArIEJyb3dzZXIgKyBWaXNpdG9yVHlwZSArIFxuICAgIFdlZWtlbmQsIGRhdGEgPSB0cmFpbilcblxuUmVzaWR1YWxzOlxuICAgIE1pbiAgICAgIDFRICBNZWRpYW4gICAgICAzUSAgICAgTWF4IFxuLTAuMzI3NCAtMC4xNTYxIC0wLjEzMTIgLTAuMTI2MiAgMC44ODY4IFxuXG5Db2VmZmljaWVudHM6XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICBFc3RpbWF0ZSBTdGQuIEVycm9yIHQgdmFsdWUgUHIoPnx0fCkgICAgXG4oSW50ZXJjZXB0KSAgICAgICAgICAgICAgICAgICAwLjIyODI4NSAgIDAuMDE0Mjg0ICAxNS45ODIgIDwgMmUtMTYgKioqXG5PcGVyYXRpbmdTeXN0ZW1zICAgICAgICAgICAgIC0wLjAwNTAzNCAgIDAuMDA0Mzg3ICAtMS4xNDcgMC4yNTEyMDggICAgXG5Ccm93c2VyICAgICAgICAgICAgICAgICAgICAgICAwLjAwNzkzMCAgIDAuMDAyMzY0ICAgMy4zNTQgMC4wMDA3OTkgKioqXG5WaXNpdG9yVHlwZU90aGVyICAgICAgICAgICAgIC0wLjA1OTkyNCAgIDAuMDUxODkwICAtMS4xNTUgMC4yNDgxOTQgICAgXG5WaXNpdG9yVHlwZVJldHVybmluZ19WaXNpdG9yIC0wLjEwMjg1MyAgIDAuMDEwODc5ICAtOS40NTUgIDwgMmUtMTYgKioqXG5XZWVrZW5kVFJVRSAgICAgICAgICAgICAgICAgICAwLjAyOTkwOCAgIDAuMDA4ODUxICAgMy4zNzkgMC4wMDA3MzAgKioqXG4tLS1cblNpZ25pZi4gY29kZXM6ICAwIOKAmCoqKuKAmSAwLjAwMSDigJgqKuKAmSAwLjAxIOKAmCrigJkgMC4wNSDigJgu4oCZIDAuMSDigJgg4oCZIDFcblxuUmVzaWR1YWwgc3RhbmRhcmQgZXJyb3I6IDAuMzU5NSBvbiA5MjQyIGRlZ3JlZXMgb2YgZnJlZWRvbVxuTXVsdGlwbGUgUi1zcXVhcmVkOiAgMC4wMTI1NSxcdEFkanVzdGVkIFItc3F1YXJlZDogIDAuMDEyMDIgXG5GLXN0YXRpc3RpYzogIDIzLjUgb24gNSBhbmQgOTI0MiBERiwgIHAtdmFsdWU6IDwgMi4yZS0xNlxuIn0= -->
+<pre><code>
+Call:
+lm(formula = Purchase ~ OperatingSystems + Browser + VisitorType + 
+    Weekend, data = train)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-0.3274 -0.1561 -0.1312 -0.1262  0.8868 
+
+Coefficients:
+                              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)                   0.228285   0.014284  15.982  &lt; 2e-16 ***
+OperatingSystems             -0.005034   0.004387  -1.147 0.251208    
+Browser                       0.007930   0.002364   3.354 0.000799 ***
+VisitorTypeOther             -0.059924   0.051890  -1.155 0.248194    
+VisitorTypeReturning_Visitor -0.102853   0.010879  -9.455  &lt; 2e-16 ***
+WeekendTRUE                   0.029908   0.008851   3.379 0.000730 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.3595 on 9242 degrees of freedom
+Multiple R-squared:  0.01255,   Adjusted R-squared:  0.01202 
+F-statistic:  23.5 on 5 and 9242 DF,  p-value: &lt; 2.2e-16</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaGVhZChwcmVkaWN0aW9ucylcbmBgYCJ9 -->
+<pre class="r"><code>head(predictions)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICAgICAxICAgICAgICAgMiAgICAgICAgIDMgICAgICAgICA0ICAgICAgICAgNSAgICAgICAgIDYgXG4wLjEyODMyODIgMC4xNTUwMTUyIDAuMTI2MTkwOSAwLjE1ODIzNjUgMC4xNjExMzMwIDAuMTI4MzI4MiBcbiJ9 -->
+<pre><code>        1         2         3         4         5         6 
+0.1283282 0.1550152 0.1261909 0.1582365 0.1611330 0.1283282 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>As we can see, after removing some more of the data that doesn’t pertain we will find that Operating systems no longer is needed, but Browser is still very influential. This is very interesting. Let’s run it one more time:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2FtcGxlX3NlbGVjdGlvbiA8LSBjcmVhdGVEYXRhUGFydGl0aW9uKFRoZVNob3BwZXJzJFB1cmNoYXNlLCBwID0gMC43NSwgbGlzdCA9IEZBTFNFKVxudHJhaW4gPC0gVGhlU2hvcHBlcnNbc2FtcGxlX3NlbGVjdGlvbixdXG50ZXN0IDwtIFRoZVNob3BwZXJzWy1zYW1wbGVfc2VsZWN0aW9uLF1cbnRyYWluX21vZGVsIDwtIGxtKFB1cmNoYXNlIH4gQnJvd3NlciArIFZpc2l0b3JUeXBlICsgV2Vla2VuZCwgZGF0YSA9IHRyYWluKVxucHJlZGljdGlvbnMgPC0gdHJhaW5fbW9kZWwgJT4lIHByZWRpY3QodGVzdClcbnN1bW1hcnkodHJhaW5fbW9kZWwpXG5gYGAifQ== -->
+<pre class="r"><code>sample_selection &lt;- createDataPartition(TheShoppers$Purchase, p = 0.75, list = FALSE)
+train &lt;- TheShoppers[sample_selection,]
+test &lt;- TheShoppers[-sample_selection,]
+train_model &lt;- lm(Purchase ~ Browser + VisitorType + Weekend, data = train)
+predictions &lt;- train_model %&gt;% predict(test)
+summary(train_model)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5DYWxsOlxubG0oZm9ybXVsYSA9IFB1cmNoYXNlIH4gQnJvd3NlciArIFZpc2l0b3JUeXBlICsgV2Vla2VuZCwgZGF0YSA9IHRyYWluKVxuXG5SZXNpZHVhbHM6XG4gICAgTWluICAgICAgMVEgIE1lZGlhbiAgICAgIDNRICAgICBNYXggXG4tMC4yOTc4IC0wLjE1MzIgLTAuMTMyOCAtMC4xMjgyICAwLjg3MTggXG5cbkNvZWZmaWNpZW50czpcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEVzdGltYXRlIFN0ZC4gRXJyb3IgdCB2YWx1ZSBQcig+fHR8KSAgICBcbihJbnRlcmNlcHQpICAgICAgICAgICAgICAgICAgIDAuMjI2OTE2ICAgMC4wMTE2MzYgIDE5LjUwMSAgPCAyZS0xNiAqKipcbkJyb3dzZXIgICAgICAgICAgICAgICAgICAgICAgIDAuMDA0NTgwICAgMC4wMDIyOTQgICAxLjk5NiAgMC4wNDU5NCAqICBcblZpc2l0b3JUeXBlT3RoZXIgICAgICAgICAgICAgLTAuMDg3MTYxICAgMC4wNTAwNjIgIC0xLjc0MSAgMC4wODE3MSAuICBcblZpc2l0b3JUeXBlUmV0dXJuaW5nX1Zpc2l0b3IgLTAuMTAzMzI5ICAgMC4wMTA4MjIgIC05LjU0OCAgPCAyZS0xNiAqKipcbldlZWtlbmRUUlVFICAgICAgICAgICAgICAgICAgIDAuMDI1MDY5ICAgMC4wMDg4NjIgICAyLjgyOSAgMC4wMDQ2OCAqKiBcbi0tLVxuU2lnbmlmLiBjb2RlczogIDAg4oCYKioq4oCZIDAuMDAxIOKAmCoq4oCZIDAuMDEg4oCYKuKAmSAwLjA1IOKAmC7igJkgMC4xIOKAmCDigJkgMVxuXG5SZXNpZHVhbCBzdGFuZGFyZCBlcnJvcjogMC4zNTk3IG9uIDkyNDMgZGVncmVlcyBvZiBmcmVlZG9tXG5NdWx0aXBsZSBSLXNxdWFyZWQ6ICAwLjAxMTMyLFx0QWRqdXN0ZWQgUi1zcXVhcmVkOiAgMC4wMTA4OSBcbkYtc3RhdGlzdGljOiAyNi40NSBvbiA0IGFuZCA5MjQzIERGLCAgcC12YWx1ZTogPCAyLjJlLTE2XG4ifQ== -->
+<pre><code>
+Call:
+lm(formula = Purchase ~ Browser + VisitorType + Weekend, data = train)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-0.2978 -0.1532 -0.1328 -0.1282  0.8718 
+
+Coefficients:
+                              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)                   0.226916   0.011636  19.501  &lt; 2e-16 ***
+Browser                       0.004580   0.002294   1.996  0.04594 *  
+VisitorTypeOther             -0.087161   0.050062  -1.741  0.08171 .  
+VisitorTypeReturning_Visitor -0.103329   0.010822  -9.548  &lt; 2e-16 ***
+WeekendTRUE                   0.025069   0.008862   2.829  0.00468 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.3597 on 9243 degrees of freedom
+Multiple R-squared:  0.01132,   Adjusted R-squared:  0.01089 
+F-statistic: 26.45 on 4 and 9243 DF,  p-value: &lt; 2.2e-16</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaGVhZChwcmVkaWN0aW9ucylcbmBgYCJ9 -->
+<pre class="r"><code>head(predictions)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICAgICAxICAgICAgICAgMiAgICAgICAgIDMgICAgICAgICA0ICAgICAgICAgNSAgICAgICAgIDYgXG4wLjEzMjc0NzYgMC4xMzI3NDc2IDAuMTMyNzQ3NiAwLjEyODE2NzcgMC4xMjgxNjc3IDAuMTU3ODE2NSBcbiJ9 -->
+<pre><code>        1         2         3         4         5         6 
+0.1327476 0.1327476 0.1327476 0.1281677 0.1281677 0.1578165 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>And now we have come to the final model. It seems that everything left does have an influence on purchases made online (even Browser). As you can see on the bottom, we have actually been predicting our outcomes for the data at different points. Let’s see how accurate our model is:</p>
+<!-- rnb-text-end -->
+
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlNob3BwZXJJbmNsaW5hdGlvblB0MihNb2RlbGluZykiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpOb3csIHRvIHN0YXJ0IHRoaXMgbmV4dCBkZWxpdmVyYWJsZSwgd2Ugd2lsbCBpbXBvcnQgb3VyIHByZXZpb3VzIHdvcmsgYW5kIGNvbnRpbnVlIQ0KYGBge3J9DQojaW5zdGFsbC5wYWNrYWdlcygidGlkeXZlcnNlIikNCmxpYnJhcnkoImtuaXRyIikNCnB1cmwoIlNob3BwZXJJbmNsaW5hdGlvbi5SbWQiLCBvdXRwdXQgPSAicGFydDEuciIpDQpzb3VyY2UoInBhcnQxLnIiKQ0KYGBgDQpOb3cgdGhhdCB3ZSBoYXZlIHRoYXQgZG9uZSwgbGV0IHVzIGltcG9ydCBhIG5ldyBkYXRhc2V0IHRoYXQgd2UgaGF2ZSBmb3VuZCB0byBzdXBwbGVtZW50IG91ciBvcmlnaW5hbCBkYXRhc2V0LiBJdCBpcyB1bmZvcnR1bmF0bGV5IG5vdCBvZiBhIGRpZmZlcmVudCB0eXBlLCBidXQgaXQgZG9lcyBzaGVkIHNvbWUgbGlnaHQgb24gaG93IHBlb3BsZSBwdXJjaGFzZSBvbmxpbmUuIEl0IHN1cHBsZW1lbnRzIHRoZSBvcmlnaW5hbCBkYXRhc2V0IGJ5IG9wZW5pbmcgdXAgYW4gYWN0dWFsIGF2ZW51ZSB0byBleHBsb3JlIHdoYXQgcGVvcGxlIGJvdWdodCBhbmQgaG93IG11Y2ggdGhleSBkaWQgd2hlbiB0aGV5IGRvIG1ha2UgcHVyY2hhc2VzIG9ubGluZS4gSW1wb3J0aW5nIGl0IHdpbGwgZ2l2ZSB1czoNCmBgYGB7cn0NCiNsaWJyYXJ5KCJ0aWR5dmVyc2UiKQ0KbGlicmFyeSgicnZlc3QiKQ0KI2xpYnJhcnkoInRpZHlyIikNCmxpYnJhcnkoInJlYWR4bCIpDQoNCiNvbmxpbmVfcHVyY2hhc2VzIDwtIHJlYWRfZXhjZWwoIk9ubGluZSBSZXRhaWwueGxzeCIpDQoNCiNoZWFkKG9ubGluZV9wdXJjaGFzZXMpDQpgYGANCk5vdywgaW4gdGhpcyBwYXJ0IG9mIHRoZSBwcm9qZWN0IEkgd291bGQgbGlrZSB0byBzZWUgaWYgYW55IG9mIHRoZSB2YXJpYWJsZXMgaW4gdGhlIGZpcnN0IGRhdGEtc2V0IGNhbiBpbXBseSBhbmQgcHJlZGljdCBhIHB1cmNoYXNlIGFuZCBpZiB0aGV5IGNhbiwgaG93IG11Y2g/IEZpcnN0LCBsZXQncyBjcmVhdGUgYSB0cmFpbmluZyBncm91cCBhbmQgYSB0ZXN0aW5nIGdyb3VwLiBXZSB3aWxsIHRlc3QgdGhlIHRyYWluaW5nIGdyb3VwIGFnYWluc3QgdGhlIHRlc3RpbmcgZ3JvdXAgdG8gc2VlIGlmIGFueSBvZiBvdXIgdmFyaWFibGVzIGNhbiBwcmVkaWN0IGlmIGEgc2hvcHBlciB3aWxsIGJ1eSBvciBub3QuDQpgYGB7cn0NCmxpYnJhcnkoImNhcmV0IikNCnNldC5zZWVkKDM4NSkNCnNhbXBsZV9zZWxlY3Rpb24gPC0gY3JlYXRlRGF0YVBhcnRpdGlvbihUaGVTaG9wcGVycyRQdXJjaGFzZSwgcCA9IDAuNzUsIGxpc3QgPSBGQUxTRSkNCnRyYWluIDwtIFRoZVNob3BwZXJzW3NhbXBsZV9zZWxlY3Rpb24sXQ0KdGVzdCA8LSBUaGVTaG9wcGVyc1stc2FtcGxlX3NlbGVjdGlvbixdDQp0cmFpbl9tb2RlbCA8LSBsbShQdXJjaGFzZSB+IE9wZXJhdGluZ1N5c3RlbXMgKyBCcm93c2VyICsgU2hvcHBlcnNfUmVnaW9uICsgVHJhZmZpY1R5cGUgKyBWaXNpdG9yVHlwZSArIFdlZWtlbmQsIGRhdGEgPSB0cmFpbikNCnByZWRpY3Rpb25zIDwtIHRyYWluX21vZGVsICU+JSBwcmVkaWN0KHRlc3QpDQpzdW1tYXJ5KHRyYWluX21vZGVsKQ0KaGVhZChwcmVkaWN0aW9ucykNCmBgYA0KRnJvbSB0aGlzLCB3ZSBjYW4gc2VlIHRoYXQgd2UgYWN0dWFsbHkgZG8gaGF2ZSBzb21lIGRhdGEgdGhhdCBpcyBwZXJ0aW5lbnQgdG8gb3VyIGRhdGEuIEhlcmUsIHdlIGNhbiBzZWUgdGhhdCBiZWluZyBhIHJldHVybmluZyB2aXNpdG9yIG1lYW50IHRoYXQgeW91IHdlcmUgbW9yZSBsaWtlbHkgdG8gYnV5LCB0aHVzIG1vc3QgcGVvcGxlIGRpZCBub3QgbWFrZSBpbXB1bHNlIHB1cmNoYXNlcy4gQWxzbywgdGhlIGZhY3QgdGhhdCBpdCB3YXMgYSB3ZWVrZW5kIGFsc28gaW5mbHVlbmNlcyBwZW9wbGUgbWFraW5nIHB1cmNoYXNlcy4gVmVyeSBpbnRlcmVzdGluZy4gTWF5YmUgd2UgY2FuIG1ha2UgdGhlIGFzc3VtcHRpb24gdGhhdCBiZWNhdXNlIG1vc3QgcGVvcGxlIGhhdmUgdGhlIHdlZWtlbmRzIG9mZiB0byBkbyB3aGF0IHRoZXkgbGlrZSB0aGV5IGdvIG9ubGluZSBhbmQgc2hvcD8gSXQgZG9lcyBmb2xsb3cgc29tZSByZWFzb24uIFRoZSBtb3JlIGludGVyZXN0aW5nIChhbmQgZnVubnksIHRvIG1lKSBpcyB0aGF0IE9wZXJhdGluZyBTdHlzdGVtcyBhbmQgYnJvd3NlcidzIGRvIGluZmx1ZW5jZSB0aGVzZS4gQ291bGQgdGhpcyBqdXN0IGJlIHNwdXJyZWxvdXMgY29ycmVsYXRpb24/IFByb2JhYmx5LiBMZXQncyBzZWUgd2hhdCBoYXBwZW5zIHdoZW4gd2UgcnVuIHRoZSBzYW1lIGNvZGUsIGJ1dCB3aXRob3V0IHRoZSB2YXJpYWJsZXMgdGhhdCBkb24ndCBpbmZsdWVuY2Ugb3VyIHB1cmNoYXNlczoNCmBgYHtyfQ0Kc2FtcGxlX3NlbGVjdGlvbiA8LSBjcmVhdGVEYXRhUGFydGl0aW9uKFRoZVNob3BwZXJzJFB1cmNoYXNlLCBwID0gMC43NSwgbGlzdCA9IEZBTFNFKQ0KdHJhaW4gPC0gVGhlU2hvcHBlcnNbc2FtcGxlX3NlbGVjdGlvbixdDQp0ZXN0IDwtIFRoZVNob3BwZXJzWy1zYW1wbGVfc2VsZWN0aW9uLF0NCnRyYWluX21vZGVsIDwtIGxtKFB1cmNoYXNlIH4gT3BlcmF0aW5nU3lzdGVtcyArIEJyb3dzZXIgKyAgVmlzaXRvclR5cGUgKyBXZWVrZW5kLCBkYXRhID0gdHJhaW4pDQpwcmVkaWN0aW9ucyA8LSB0cmFpbl9tb2RlbCAlPiUgcHJlZGljdCh0ZXN0KQ0Kc3VtbWFyeSh0cmFpbl9tb2RlbCkNCmhlYWQocHJlZGljdGlvbnMpDQpgYGANCkFzIHdlIGNhbiBzZWUsIGFmdGVyIHJlbW92aW5nIHNvbWUgbW9yZSBvZiB0aGUgZGF0YSB0aGF0IGRvZXNuJ3QgcGVydGFpbiB3ZSB3aWxsIGZpbmQgdGhhdCBPcGVyYXRpbmcgc3lzdGVtcyBubyBsb25nZXIgaXMgbmVlZGVkLCBidXQgQnJvd3NlciBpcyBzdGlsbCB2ZXJ5IGluZmx1ZW50aWFsLiBUaGlzIGlzIHZlcnkgaW50ZXJlc3RpbmcuIExldCdzIHJ1biBpdCBvbmUgbW9yZSB0aW1lOg0KYGBge3J9DQpzYW1wbGVfc2VsZWN0aW9uIDwtIGNyZWF0ZURhdGFQYXJ0aXRpb24oVGhlU2hvcHBlcnMkUHVyY2hhc2UsIHAgPSAwLjc1LCBsaXN0ID0gRkFMU0UpDQp0cmFpbiA8LSBUaGVTaG9wcGVyc1tzYW1wbGVfc2VsZWN0aW9uLF0NCnRlc3QgPC0gVGhlU2hvcHBlcnNbLXNhbXBsZV9zZWxlY3Rpb24sXQ0KdHJhaW5fbW9kZWwgPC0gbG0oUHVyY2hhc2UgfiBCcm93c2VyICsgVmlzaXRvclR5cGUgKyBXZWVrZW5kLCBkYXRhID0gdHJhaW4pDQpwcmVkaWN0aW9ucyA8LSB0cmFpbl9tb2RlbCAlPiUgcHJlZGljdCh0ZXN0KQ0Kc3VtbWFyeSh0cmFpbl9tb2RlbCkNCmhlYWQocHJlZGljdGlvbnMpDQpgYGANCkFuZCBub3cgd2UgaGF2ZSBjb21lIHRvIHRoZSBmaW5hbCBtb2RlbC4gSXQgc2VlbXMgdGhhdCBldmVyeXRoaW5nIGxlZnQgZG9lcyBoYXZlIGFuIGluZmx1ZW5jZSBvbiBwdXJjaGFzZXMgbWFkZSBvbmxpbmUgKGV2ZW4gQnJvd3NlcikuIEFzIHlvdSBjYW4gc2VlIG9uIHRoZSBib3R0b20sIHdlIGhhdmUgYWN0dWFsbHkgYmVlbiBwcmVkaWN0aW5nIG91ciBvdXRjb21lcyBmb3IgdGhlIGRhdGEgYXQgZGlmZmVyZW50IHBvaW50cy4gTGV0J3Mgc2VlIGhvdyBhY2N1cmF0ZSBvdXIgbW9kZWwgaXM6</div>
 
 
 
