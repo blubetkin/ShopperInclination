@@ -7,7 +7,7 @@ output:
   pdf_document: default
 ---
 ##Intro and Data Importing
-```{r}
+```{r, initial-import}
 #install.packages("tidyverse", repos = "http://cran.us.r-project.org")
 library("tidyverse")
 library("dplyr")

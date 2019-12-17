@@ -6,12 +6,12 @@ output:
 ---
 ## Importing Data from both Deliverables
 To start, let's import all the work we have from the previous deliverables: 
-```{r, message=FALSE, warning=FALSE}
+```{r,Import-deliverable2, message=FALSE, warning=FALSE}
 #install.packages("tidyverse")
 #library("tidyverse")
 library("knitr")
-purl("ShopperInclinationPt2.Rmd", output = "part1.r")
-source("part1.r")
+purl("ShopperInclinationPt2.Rmd", output = "part2.r")
+source("part2.r")
 ```
 ## Peer Review of Deliverables
 

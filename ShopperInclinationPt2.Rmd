@@ -6,7 +6,7 @@ output:
 ---
 ## Importing of Deliverable 1 and libraries
 Now, to start this next deliverable, we will import our previous work and continue!
-```{r, message=FALSE, warning=FALSE}
+```{r, Importing-deliverable1, message=FALSE, warning=FALSE}
 #install.packages("tidyverse")
 #library("tidyverse")
 library("knitr")
