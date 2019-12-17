@@ -1,0 +1,65 @@
+---
+title: "ShopperInclinationPt3"
+output:
+  html_document:
+    df_print: paged
+---
+## Importing Data from both Deliverables
+To start, let's import all the work we have from the previous deliverables: 
+```{r, message=FALSE, warning=FALSE}
+#install.packages("tidyverse")
+#library("tidyverse")
+library("knitr")
+purl("ShopperInclinationPt2.Rmd", output = "part1.r")
+source("part1.r")
+```
+## Peer Review of Deliverables
+
+Before going into any analysis and operationalization, though it would be good to go in and clean up anything that is rough in the previous deliverables. I will document some changes made through my peer reviews here:
+
+  ## Deliverable 1
+
+1) Moved all library code to the top of the project.
+2) Summarized some visualizations more clearly in the first deliverable.
+3) Made the variable names more uniform by using snail case instead of spaces.
+4) Added Sections to make titles and areas more understandable (Thank you Nathan!).
+
+  ## Deliverable 2
+  
+1) Also made titles for different parts of the deliverable.
+2) Suppressed some warnings to make it cleaner.
+3) Fixed model to run as logistics instead of linear.
+
+## Another Model
+Now, after looking over the project, let's see if we can add another model to see if some other variables will predict shoppers making an online purchase:
+```{r}
+set.seed(385)
+sample_selection_2 <- createDataPartition(Shopping$Purchase, p = 0.75, list = FALSE)
+train_2 <- Shopping[sample_selection_2,]
+test_2 <- Shopping[-sample_selection_2,]
+train_model_2 <- glm(Purchase ~ Percentage_that_Left_Website_Immediately + Percentage_of_Page_Views_in_Last_Session + PageValues + Holiday + Month, data = train_2)
+predictions_2 <- train_model_2 %>% predict(test_2, type = 'response')
+summary(train_model_2)
+head(predictions_2)
+```
+We can see that there might be some variables here that can predict whether or not someone makes a purchase online. According to the data, though, holidays are not a significant predictor, which is interesting. We can see, however that the month of November is a big predictor, most likely due to the Black Friday deals and early Christmas Shopping. PageValues too is a predictor according to this, though I feel like it probably shouldn't have much of a bearing. When we compare this to our values in the original train_2 data, we can see a few correlations, but the model just isn't quite there yet. We could use some more variables to create a better model.
+```{r}
+head(train_2$Purchase)
+```
+Out of curiosity, let's run this again, but without the percentages and page values:
+```{r}
+train_model_2 <- glm(Purchase ~ Holiday + Month, family=binomial, data = train_2)
+predictions_2 <- train_model_2 %>% predict(test_2, type = 'response')
+summary(train_model_2)
+head(predictions_2)
+```
+Now we can see a little better that Holidays DO, in fact, predict whether a purchase was made or not. This also might be due to the fact that we took too many variables away when we did this model as well.
+
+We can check to see if this is a good predictor, by comparing the predictions at the bottom to the actual purchases in the Purchase variable (we will use head, but to see more we can look at the actual table):
+```{r}
+head(train_2$Purchase)
+```
+We see that once again, we don't have too great of a predicting model, which is fine, there is still more we could do with this data if we wanted to. Maybe look at which months predict the holidays? May be interesting.
+
+## Operationalization and Ethics Summary
+After doing the modeling, I have determined that it does not predict my outcomes well. I believe that I had some more variables then I would be able to create a better model. I originally had many questions that boiled down into my one model that I observed in part 2, which was: Are returning shoppers more inclined to make purchases? And if so, what else influenced them? This led into the model in this deliverable which asked whether more day-based factors might influence online shopping. Now, the main question would be, how to operationalize this project? I have found that there is a possible connection between people making online purchases and other variables from the model. While it doesn't correctly predict it, I believe that we can keep it in mind for the operationalization of the project. These findings would work well in advertising. Using the model, we can see that returning visitors to websites are more likely to make a purchase than new visitors. Using this I would say that websites that sell merchandise should definitley work in keeping people coming back to their site, through promotions, accounts, and various deals. This will keep those who have come coming back. Also from the model, we can see that the best time to create these advertisments and run them would be the weekend. This is when you would have the most willing people to buy. I believe that these changes could increase the revenue that a website would recieve. Of course, this might lead to the ethical issue of targeted advertising not just based off of having an account on a website, but also on the day of the week. To minimize this it would be important to make it worthwhile or lessen it to only a certain weekend day rather than the whole weekend.

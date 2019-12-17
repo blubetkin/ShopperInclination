@@ -6,25 +6,27 @@ output:
     df_print: paged
   pdf_document: default
 ---
+##Intro and Data Importing
+```{r}
+#install.packages("tidyverse", repos = "http://cran.us.r-project.org")
+library("tidyverse")
+library("dplyr")
+library("tidyr")
+library("ggplot2")
+```
 The title of this data set is "Online Shoppers Purchasing Intention Data Set it is from the UCI machine learing repository. Here is the cited source: Sakar, C.O., Polat, S.O., Katircioglu, M. et al. Neural Comput & Applic (2018).
 
 This data set is showing the inclination of online shoppers to buy certain products online when they are new or returning to a new website. It follows over 12,000 people as they buy and not buy. I chose this data set because I, as many others (at least 12,000), do enjoy partaking in online shopping, especially since credit cards are a thing and credit reports are just numbers. First, let us import the data and we can get started!
 
 ```{r}
-#install.packages("tidyverse", repos = "http://cran.us.r-project.org")
-library("tidyverse")
-
 Shoppers <- read_csv("https://raw.githubusercontent.com/blubetkin/ShopperInclination/master/online_shoppers_intention.csv")
-
-library("dplyr")
-library("tidyr")
-library("ggplot2")
 ```
+## Data Summary
 I do believe that this data is good, as it covers a wide array of people. For example, since each observation follows one person I feel like each variable can be easily followed as well as interacted with for each person. Another thing I like is how it takes data based off of a whole browsing session rather than just a single website. This can give us a small window into maybe what the person was thinking when they made a purchase, were they shopping around or getting to swiping that sweet plastic? It also has the added benefit of being attached to and used for an academic research paper entitled, "Real-time prediction of online shoppers’ purchasing intention using multilayer perceptron and LSTM recurrent neural networks" by C. Okan Sakar, S. Olcay Polat, Mete Katircioglu, and Yomi Kastro. Thus, I find that it is most definitely on the trustworthy side. It is hard for me to find limitations with it. It does rely on numbers in certain areas where actual words would make more sense (like in the browser variable) and it is a little general, so anyone wanting to find information on certain products being sold or websites being used should look elsewhere. That being said, it is a very good data set!
 
 Now, each column is very strange (at least that is how they appear to be), so let's break down what these variables (columns) mean!
 
--First, we can actually group the first six columns together! How exciting!And time saving! Each one stands for a certain type of website that was visited during the browsing session and how long they were on the website for. Whether they were Administrative, Informational, or Product Related. The time on the duration variables are in seconds.
+-First, we can actually group the first six columns together! How exciting! And time saving! Each one stands for a certain type of website that was visited during the browsing session and how long they were on the website for. Whether they were Administrative, Informational, or Product Related. The time on the duration variables are in seconds.
 
 -Second, we come to the bounce rate, which is the percentage of people who entered into the site with the product and then left without doing anything related to purchasing.
 
@@ -36,15 +38,17 @@ Now, each column is very strange (at least that is how they appear to be), so le
 
 -Sixth, the next variables all deal with the month the shopping was made in, the numerical values of the browser that was being used, the operating system that the shopper was using, region the shopper was in, and traffic type that the user belonged to. It also contains the variable visitor type, which details if the shopper was new or returning to the site.
 
--Seventh, finally, the last two variables are called Weekend and Revenue. These are given boolean statements (True or False) to state whether someone was shopping on a weekend and if they made a purchase or not (in the Revenue column). Now that we have sorted these out, we can clean the data:
+-Seventh, finally, the last two variables are called Weekend and Revenue. These are given boolean statements (True or False) to state whether someone was shopping on a weekend and if they made a purchase or not (in the Revenue column).
+## Data Cleaning
+Now that we have sorted these out, we can clean the data:
 
 For readability, let's rename the some of the columns,
 ```{r}
 colnames(Shoppers)[colnames(Shoppers) == "Administrative"] <- "Administrative_Website"
 colnames(Shoppers)[colnames(Shoppers) == "Informational"] <- "Informational_Website"
 colnames(Shoppers)[colnames(Shoppers) == "ProductRelated"] <- "ProductRelated_Website"
-colnames(Shoppers)[colnames(Shoppers) == "BounceRates"] <- "Percentage that Left Website Immediately"
-colnames(Shoppers)[colnames(Shoppers) == "ExitRates"] <- "Percentage of Page Views in Last Session (Out of all Views)"
+colnames(Shoppers)[colnames(Shoppers) == "BounceRates"] <- "Percentage_that_Left_Website_Immediately"
+colnames(Shoppers)[colnames(Shoppers) == "ExitRates"] <- "Percentage_of_Page_Views_in_Last_Session"
 colnames(Shoppers)[colnames(Shoppers) == "Administrative"] <- "Administrative_Website"
 colnames(Shoppers)[colnames(Shoppers) == "Revenue"] <- "Purchase"
 colnames(Shoppers)[colnames(Shoppers) == "Region"] <- "Shoppers_Region"
@@ -59,7 +63,7 @@ Websites <- tibble(Administrative_Website = Shoppers$Administrative_Website, Adm
 Next, we can create a table dedicated to how long shoppers spent on the site that they made their purchase on. We are ceating this seperate table because it will allow us to easily access information that is directly related to how the person shopped. This table is what we will look at if a purchase was made on impulse or not.
 
 ```{r}
-Shopping <- tibble("Percentage that Left Website Immediately" = Shoppers$"Percentage that Left Website Immediately", "Percentage of Page Views in Last Session (Out of all Views)" = Shoppers$"Percentage of Page Views in Last Session (Out of all Views)", "PageValues" = Shoppers$"PageValues", "Holiday" = Shoppers$"Holiday", "Month" = Shoppers$"Month", Purchase = Shoppers$Purchase)
+Shopping <- tibble(Percentage_that_Left_Website_Immediately = Shoppers$Percentage_that_Left_Website_Immediately, Percentage_of_Page_Views_in_Last_Session = Shoppers$Percentage_of_Page_Views_in_Last_Session, PageValues = Shoppers$PageValues, Holiday = Shoppers$Holiday, Month = Shoppers$Month, Purchase = Shoppers$Purchase)
 ```
 
 Finally, we will make a final table that collects all the data on the shoppers, their computers, what browsers they are using, region they're in, etc. This will make it easy for us to identify things we want to know about the shoppers themselves.
@@ -67,8 +71,8 @@ Finally, we will make a final table that collects all the data on the shoppers, 
 ```{r}
 TheShoppers <- tibble(OperatingSystems = Shoppers$OperatingSystems, Browser = Shoppers$Browser, Shoppers_Region = Shoppers$Shoppers_Region, TrafficType = Shoppers$TrafficType, VisitorType = Shoppers$VisitorType, Weekend = Shoppers$Weekend, Purchase = Shoppers$Purchase)
 ```
-
-The next thing I will do is take some of the data and visualize it. The first thing we will visualize is how many buyers there were online. To represent this we will use a simple bar chart:
+## Visualization
+The next thing I will do is take some of the data and visualize it. The first thing we will visualize is how many shoppers that were online in this given time actually made a purchase. To represent this we will use a simple bar chart:
 
 ```{r}
 ggplot(TheShoppers, aes(x = Purchase)) + geom_bar()
@@ -92,7 +96,7 @@ ggplot(Shopping, aes(x = Holiday)) + geom_bar()
 ```
 From this, we can see that most of the possible shopping was done on days not related to holidays. This is important to see because it doesn't just take into account shoppers purchasing, but also shoppers not purchasing, thus we get a more well-rounded view of when a majority of the shopping is taking place. This is our first visualization with this, but I do think we will be breaking it up in the future and looking at different collections related to buyers and non-buyers and these holidays.
 
-
+## Final Points and Initial Research Questions
 Now that we have done the intro to my data set and done some cleaning, I believe it is time to look at what I would like to find based on this data set. My questions I would like to answer are:
 
 -To determine impulse purchases, how many new visitors made a purchase? This information could be used to model advertising and whether it is directed more towards new or returning customers.

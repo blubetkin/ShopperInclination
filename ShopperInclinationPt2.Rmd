@@ -4,9 +4,9 @@ output:
   html_document:
     df_print: paged
 ---
-
+## Importing of Deliverable 1 and libraries
 Now, to start this next deliverable, we will import our previous work and continue!
-```{r}
+```{r, message=FALSE, warning=FALSE}
 #install.packages("tidyverse")
 #library("tidyverse")
 library("knitr")
@@ -15,7 +15,6 @@ source("part1.r")
 ```
 Now that we have that done, let us import a new dataset that we have found to supplement our original dataset. It is unfortunatley not of a different type, but it does shed some light on how people purchase online. It supplements the original dataset by opening up an actual avenue to explore what people bought and how much they did when they do make purchases online. Importing it will give us:
 ````{r}
-library("rvest")
 library("readxl")
 
 online_purchases <- read_excel("Online Retail.xlsx")
@@ -28,14 +27,14 @@ ggplot(TheShoppers, aes(x = Purchase)) + geom_bar()
 ```
 
 First, let's create a training group and a testing group. We will test the training group against the testing group to see if any of our variables can predict if a shopper will buy or not.
-```{r}
+```{r, warning=FALSE, message=FALSE}
 library("caret")
 set.seed(385)
 sample_selection <- createDataPartition(TheShoppers$Purchase, p = 0.75, list = FALSE)
 train <- TheShoppers[sample_selection,]
 test <- TheShoppers[-sample_selection,]
-train_model <- lm(Purchase ~ OperatingSystems + Browser + Shoppers_Region + TrafficType + VisitorType + Weekend, data = train)
-predictions <- train_model %>% predict(test)
+train_model <- glm(Purchase ~ OperatingSystems + Browser + Shoppers_Region + TrafficType + VisitorType + Weekend, data = train)
+predictions <- train_model %>% predict(test, type = 'response')
 summary(train_model)
 head(predictions)
 ```
@@ -44,8 +43,8 @@ From this, we can see that we actually do have some data that is pertinent to ou
 sample_selection <- createDataPartition(TheShoppers$Purchase, p = 0.75, list = FALSE)
 train <- TheShoppers[sample_selection,]
 test <- TheShoppers[-sample_selection,]
-train_model <- lm(Purchase ~ OperatingSystems + Browser +  VisitorType + Weekend, data = train)
-predictions <- train_model %>% predict(test)
+train_model <- glm(Purchase ~ OperatingSystems + Browser +  VisitorType + Weekend, data = train)
+predictions <- train_model %>% predict(test, type ='response')
 summary(train_model)
 head(predictions)
 ```
@@ -54,14 +53,14 @@ As we can see, after removing some more of the data that doesn't pertain we will
 sample_selection <- createDataPartition(TheShoppers$Purchase, p = 0.75, list = FALSE)
 train <- TheShoppers[sample_selection,]
 test <- TheShoppers[-sample_selection,]
-train_model <- lm(Purchase ~ Browser + VisitorType + Weekend, data = train)
-predictions <- train_model %>% predict(test)
+train_model <- glm(Purchase ~ Browser + VisitorType + Weekend, data = train)
+predictions <- train_model %>% predict(test, type = 'response')
 summary(train_model)
 head(predictions)
 ```
 And now we have come to the final model. It seems that everything left does have an influence on purchases made online (even Browser). As you can see on the bottom, we have actually been predicting our outcomes for the data at different points. Let's see how accurate our model is:
 
 ```{r}
-head(TheShoppers)
+head(train$Purchase)
 ```
 From the notion that True =1 and False = 0, we can see that our model does pretty well in predicting False, but if you move through it more and look for indicators of True, it is not so accurate. I believe that we are limited by our lack of influential data. We started out with a lot, but had to chisel it down till we only had about 4 parts that were influential. Still, though we have found some very interesting points with our data that maybe we can assimilate with our supplemental data!
