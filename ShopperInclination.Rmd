@@ -18,7 +18,7 @@ The title of this data set is "Online Shoppers Purchasing Intention Data Set it 
 
 This data set is showing the inclination of online shoppers to buy certain products online when they are new or returning to a new website. It follows over 12,000 people as they buy and not buy. I chose this data set because I, as many others (at least 12,000), do enjoy partaking in online shopping, especially since credit cards are a thing and credit reports are just numbers. First, let us import the data and we can get started!
 
-```{r}
+```{r, import-data, message=FALSE, warning=FALSE}
 Shoppers <- read_csv("https://raw.githubusercontent.com/blubetkin/ShopperInclination/master/online_shoppers_intention.csv")
 ```
 ## Data Summary
@@ -43,7 +43,7 @@ Now, each column is very strange (at least that is how they appear to be), so le
 Now that we have sorted these out, we can clean the data:
 
 For readability, let's rename the some of the columns,
-```{r}
+```{r, data-cleaning}
 colnames(Shoppers)[colnames(Shoppers) == "Administrative"] <- "Administrative_Website"
 colnames(Shoppers)[colnames(Shoppers) == "Informational"] <- "Informational_Website"
 colnames(Shoppers)[colnames(Shoppers) == "ProductRelated"] <- "ProductRelated_Website"
@@ -56,42 +56,42 @@ colnames(Shoppers)[colnames(Shoppers) == "SpecialDay"] <- "Holiday"
 ```
 Now, this data set seems very big. It would be a good idea to separate some columns into some other tables. First, let's create a table that takes all of the data about the websites that were visited before a purchase was made and put them into their own table. This will allow us to have a quick reference for any information on the websites. 
 
-```{r}
+```{r, table-creation}
 Websites <- tibble(Administrative_Website = Shoppers$Administrative_Website, Administrative_Duration = Shoppers$Administrative_Duration, Informational_Website = Shoppers$Informational_Website, Informational_Duration = Shoppers$Informational_Duration, ProductRelated = Shoppers$ProductRelated_Website, ProductRelated_Duration = Shoppers$ProductRelated_Duration, Purchase = Shoppers$Purchase)
 ```
 
 Next, we can create a table dedicated to how long shoppers spent on the site that they made their purchase on. We are ceating this seperate table because it will allow us to easily access information that is directly related to how the person shopped. This table is what we will look at if a purchase was made on impulse or not.
 
-```{r}
+```{r, table-creation_2}
 Shopping <- tibble(Percentage_that_Left_Website_Immediately = Shoppers$Percentage_that_Left_Website_Immediately, Percentage_of_Page_Views_in_Last_Session = Shoppers$Percentage_of_Page_Views_in_Last_Session, PageValues = Shoppers$PageValues, Holiday = Shoppers$Holiday, Month = Shoppers$Month, Purchase = Shoppers$Purchase)
 ```
 
 Finally, we will make a final table that collects all the data on the shoppers, their computers, what browsers they are using, region they're in, etc. This will make it easy for us to identify things we want to know about the shoppers themselves.
 
-```{r}
+```{r, table-creation_3}
 TheShoppers <- tibble(OperatingSystems = Shoppers$OperatingSystems, Browser = Shoppers$Browser, Shoppers_Region = Shoppers$Shoppers_Region, TrafficType = Shoppers$TrafficType, VisitorType = Shoppers$VisitorType, Weekend = Shoppers$Weekend, Purchase = Shoppers$Purchase)
 ```
 ## Visualization
 The next thing I will do is take some of the data and visualize it. The first thing we will visualize is how many shoppers that were online in this given time actually made a purchase. To represent this we will use a simple bar chart:
 
-```{r}
+```{r,visualization}
 ggplot(TheShoppers, aes(x = Purchase)) + geom_bar()
 ```
 
 Wowzers! Look at how many shoppers are responsible! They didn't buy anything! This will surely be seen in the data later on. We can use it in the other questions about purchases made. Now, let's make a bar graph about how many returning shoppers there were versus how many were new:
 
-```{r}
+```{r, visualization_2}
 ggplot(TheShoppers, aes(x = VisitorType)) + geom_bar()
 ```
 From this we can see that most of the shoppers, and possible buyers, are actually returning, thus we can think that they might have possibly been planning on this purchase and not just buying impulsively. This information can be used in any questions related to just new visitors or just returning visitors. Next, let's make a graph of the amount of shopping being done on the weekend:
 
-```{r}
+```{r, visualization_3}
 ggplot(TheShoppers, aes(x = Weekend)) + geom_bar()
 ```
 This shows that most of the shoppers did their shopping on the weekdays. This could be from people getting done with work and relaxing by shopping online. If that is the case, then the weekdays would be the best time for ads to be targeted to users if an advertising agency was looking at this data.
 
 Now, the final graph I would like to make is a bar graph related to how many people were visiting sites close to the holidays:
-```{r}
+```{r, visualization_4}
 ggplot(Shopping, aes(x = Holiday)) + geom_bar()
 ```
 From this, we can see that most of the possible shopping was done on days not related to holidays. This is important to see because it doesn't just take into account shoppers purchasing, but also shoppers not purchasing, thus we get a more well-rounded view of when a majority of the shopping is taking place. This is our first visualization with this, but I do think we will be breaking it up in the future and looking at different collections related to buyers and non-buyers and these holidays.
